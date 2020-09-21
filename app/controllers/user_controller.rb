@@ -14,14 +14,16 @@ class UserController < ApplicationController
         #!Done
         if User.find_by(username: params[:username]) == nil 
             user = User.new(username: params[:username], password: params[:password])
-            family = Family.find(name: params[family][family_name])
+            family = Family.find_by(name: params[:family][:family_name])
             if user.save
                 session[:user_id] = user.id
-                if family && family.validate(params[family][family_password])
+                if family && family.validate(params[:family][:family_password])
                     user.family = family
                     user.save
+
+                    redirect "/users/#{user.id}"
                 end
-                redirect to "/recipes"
+                redirect to "/users/#{user.id}"
             else
                 redirect "/users/new"
             end 

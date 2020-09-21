@@ -36,7 +36,7 @@ class RecipeController < ApplicationController
             prep_hours: params[:prep_hours],
             user: current_user
         )
-        binding.pry
+       # binding.pry
         recipe.save
         
         redirect "/recipes/#{recipe.id}"

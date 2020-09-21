@@ -53,7 +53,7 @@ class FamilyController < ApplicationController
 
             erb :'/Family/show'
         else
-            redirect #! where?
+            redirect :"/Family/#{current_user.family.id}"
         end
     end
 

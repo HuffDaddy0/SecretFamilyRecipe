@@ -1,8 +1,10 @@
-<h1>Profile goes here</h1>
+<h1><%= @user.id%></h1>
 
-<%= @user.id%><br>
+<br>
 <%= @user.username%><br>
-<%= @user.family.name%><br>
+<%if @user.family.name%>
+<%=@user.family.name%>
+<%end%>
 <%if @user == current_user%>
         <form method='get' action='/users/<%=@user.id%>/edit'>
         <input type="submit" value = "Edit">
@@ -26,4 +28,4 @@ Recipes: <%= @user.recipes.length%><br>
 <%end%>
 
 
-go through saved instance and use .errors.full_messages. Fridays lecture covers
+<!--go through saved instance and use .errors.full_messages. Fridays lecture covers --->
