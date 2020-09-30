@@ -32,7 +32,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def family_admin
-      User.find(users_family.admin_user_id)
+      User.find(@family.admin_user_id)
     end
 
     def find_admin

@@ -28,7 +28,8 @@ footer will contain info about me, contact, support, --->
           <% if current_user.family %>
           <li><a href="/families/<%=current_user.family.id%>">My Family</a></li>
           <%else%>
-          <li><a href="/families/new">Join a Family</a></li>
+          <li><a href="/families/join">Join a Family</a></li>
+          <li><a href="/families/new">Create A Family</a></li>
           <%end%>
           <li><a href="/recipes">All Recipes</a></li>    
           <li><a href="/users/<%=current_user.id%>">Profile</a></li>

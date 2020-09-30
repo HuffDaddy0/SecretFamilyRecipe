@@ -15,27 +15,32 @@ class FamilyController < ApplicationController
 
     get "/families/join" do
         if logged_in?
-            erb :'/Family/login'
+            erb :'/Family/join'
         else
-            redirect '/login'
+            redirect '/families/join'
         end
     end
 
     post "/families/join" do
-        family = Family.find(name: params[:family_name])
-        if family && family.authenticate(params[:family_password])
-            family.users << current_user
+        family = Family.find_by(name: params[:name])
+        binding.pry
+        if family && family.authenticate(params[:password])
+            current_user.family = family
+            current_user.save
+
+            redirect "/families/#{family.id}"
         end
 
-        redirect "/families/#{family.id}"
+        redirect "/families/join"
     end
 
     post "/families/new" do
         if params[:family_name] != "" && pass_match(params[:family_password],params[:vfamily_password])
-            family = Family.new(name: params[:family_name], password: params[:family_password], admin_user_id: current_user.id)
+            family = Family.new(name: params[:family_name], password: params[:family_password])
             family.users << current_user
             if family.save
-            family.users << current_user
+                family.admin_user_id = current_user.id
+
            
             redirect "/families/#{family.id}"
             else
@@ -48,12 +53,12 @@ class FamilyController < ApplicationController
 
     get "/families/:id" do
         family = Family.find(params[:id])
-        if family && current_user.family == family
+        if family
             @family = family
 
             erb :'/Family/show'
         else
-            redirect :"/Family/#{current_user.family.id}"
+            redirect "/families/#{current_user.family.id}"
         end
     end
 

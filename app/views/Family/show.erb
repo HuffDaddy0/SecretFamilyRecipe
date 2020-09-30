@@ -1,10 +1,10 @@
 <h1>The <%=@family.name%> Cookbook!</h1>
-<p>Family Admin:<a href="/users/<%= @family.admin_user_id %>"><%=family_admin.username%></a></p>
+<p>Family Admin:<a href="/users/<%= @family.admin_user_id %>"><%=User.find(@family.admin_user_id).username%></a></p>
 <%if @family.admin_user_id == current_user.id%>
         <form method='get' action='/families/<%=@family.id%>/edit'>      
         <input type="submit" value = "Edit Family">
         </form>
-        <form method='get' action='/families/<%=@family.id%>'>
+        <form method='post' action='/families/<%=@family.id%>'>
         <input type="submit" name="_method" value = "delete">
         </form>
 <%end%>

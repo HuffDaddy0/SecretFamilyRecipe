@@ -1,16 +1,19 @@
 <h1><%= @user.id%></h1>
 
 <br>
-<%= @user.username%><br>
-<%if @user.family.name%>
-<%=@user.family.name%>
+<h2><%= @user.username%></h2><br>
+<%= @user.display_name ||= <i>Set Your Display Name!</i> %>
+<%if !!@user.family%>
+<%= @user.family.name%>
+<%else%>
+<p> You havn't joined a family yet :(</p>
 <%end%>
 <%if @user == current_user%>
         <form method='get' action='/users/<%=@user.id%>/edit'>
-        <input type="submit" value = "Edit">
+        <input type="submit" value="Edit">
         </form>
-        <form method='get' action='/users/<%=@user.id%>'>
-        <input type="submit" name="_method" value = "delete">
+        <form method='post' action='/users/<%=@user.id%>'>
+        <input type="submit" name="_method" value = "Delete">
         </form>
 <%end%>
 Recipes: <%= @user.recipes.length%><br>
@@ -19,10 +22,11 @@ Recipes: <%= @user.recipes.length%><br>
 <p>Total Time: <%=recipe.total_cook_time%></p>
 <%if @user == current_user%>
     <form method='get' action='/recipe/<%=recipe.id%>/edit'>
-    <input type="submit" value = "Edit">
+    <input type="submit" value="Edit">
     </form>
-    <form method='post' action='/recipe/<%=recipe.id%>/delete'>
-    <input type="submit" name="_method" value="delete">
+    <form method='post' action='/recipe/<%=recipe.id%>'>
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="submit">
     </form>
 <%end%>
 <%end%>
