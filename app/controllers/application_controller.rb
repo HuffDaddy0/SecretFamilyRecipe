@@ -34,11 +34,5 @@ class ApplicationController < Sinatra::Base
     def family_admin
       User.find(@family.admin_user_id)
     end
-
-    def find_admin
-      
-      User.find()
-    end
-
   end
 end

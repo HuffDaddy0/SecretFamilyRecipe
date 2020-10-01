@@ -1,11 +1,11 @@
 <form method="POST" action="/users/<%=@user.id%>">
-<input type="hidden" name="_method" value="patch">
-<%if @user.display_name%>
-<p>Display Name:<input type="text" name="display_name" value="<%=@user.display_name%>"></p>
-<%else%>
-<p>Display Name:<input type="text" name="display_name"></p>
-<%end%>
-<p>Current Password:<input type="password" name="current_password"></p>
-<br>
-<input type="submit" name="submit" value="Submit">
+    <input type="hidden" name="_method" value="patch">
+        <%if @user.display_name%>
+            <p>Display Name:<input type="text" name="display_name" value="<%=@user.display_name%>"></p>
+        <%else%>
+            <p>Display Name:<input type="text" name="display_name"></p>
+        <%end%>
+    <p>Current Password:<input type="password" name="current_password"></p>
+    <br>
+    <input type="submit" name="submit" value="Submit">
 </form>

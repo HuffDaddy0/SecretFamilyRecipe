@@ -12,16 +12,16 @@ class RecipeController < ApplicationController
         erb :'Recipe/new'
     end
 
-    get "/recipes/search"do
-        #! Done
+    # get "/recipes/search"do
+    #     #! Done
 
-        erb :'Recipe/search'
-    end  
+    #     erb :'Recipe/search'
+    # end  
 
-    post "/recipe/search" do
-        #! Figure out search form, and how to find from that form
-        Recipe.find_by()
-    end
+    # post "/recipe/search" do
+    #     #! Figure out search form, and how to find from that form
+    #     Recipe.find_by()
+    # end
 
     post "/recipes/new" do
         #binding.pry

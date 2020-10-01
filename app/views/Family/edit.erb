@@ -1,6 +1,6 @@
 <form method="post" action="/families/<%=@family.id%>">
-<input id="hidden" type="hidden" name="_method" value="patch">
-Family Name:<input type="text" name="name" value="<%=@family.name%>">
-Current Password:<input type="password" name="family_password">
-<input type="submit" name="submit" value="submit">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    Family Name:<input type="text" name="name" value="<%=@family.name%>">
+    Current Password:<input type="password" name="family_password">
+    <input type="submit" name="submit" value="submit">
 </form>

@@ -1,9 +1,9 @@
 <h1>First user from your family? Create a family here!</h1>
-<form method="post" action="/families/new">
-<input type="hidden" name="admin_id" value="<%=current_user.id%>">
-Family Name:<input type="text" name="family_name">
-Password:<input type="password" name="family_password">
-Verify Password:<input type="password" name="vfamily_password">
-<h3>REMEMBER YOUR PASSWORD! Your family will need it to join you!</h3>
-<input type="submit" name="submit" value="submit">
+    <form method="post" action="/families/new">
+    <input type="hidden" name="admin_id" value="<%=current_user.id%>">
+    Family Name:<input type="text" name="family_name">
+    Password:<input type="password" name="family_password">
+    Verify Password:<input type="password" name="vfamily_password">
+    <h3>REMEMBER YOUR PASSWORD! Your family will need it to join you!</h3>
+    <input type="submit" name="submit" value="submit">
 </form>

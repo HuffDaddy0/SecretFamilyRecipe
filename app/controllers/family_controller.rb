@@ -35,14 +35,14 @@ class FamilyController < ApplicationController
     end
 
     post "/families/new" do
-        if params[:family_name] != "" && pass_match(params[:family_password],params[:vfamily_password])
-            family = Family.new(name: params[:family_name], password: params[:family_password])
-            family.users << current_user
-            if family.save
-                family.admin_user_id = current_user.id
-
+        if params[:family_name] != "" && pass_match(params[:family_password], params[:vfamily_password])
+            @family = Family.new(name: params[:family_name], password: params[:family_password])
+            @family.users << current_user
+            if @family.save
+                @family.update(admin_user_id: current_user.id)
+                @family.save
            
-            redirect "/families/#{family.id}"
+            redirect "/families/#{@family.id}"
             else
             redirect "/families/new"
             end

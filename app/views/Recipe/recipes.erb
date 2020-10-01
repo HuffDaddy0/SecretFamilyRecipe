@@ -3,12 +3,12 @@ This page will show all recipes. have link to create recipe
 
 <!Doctype html>
 <body>
-<h1>Recent Public Recipes</h1>
-<%find_last_5_public.each do |recipe|%>
-<h1><a href="/recipes/<%=recipe.id%>"><%= recipe.name %></a></h1>
-<h3>Total Time: <%= recipe.total_cook_time %></h3>
-<h5>Created By:<a href="/users/<%=recipe.user_id%>"><%=recipe.user.username%></a></h5>
-<%end%>
+    <h1>Recent Public Recipes</h1>
+    <%find_last_5_public.each do |recipe|%>
+        <h1><a href="/recipes/<%=recipe.id%>"><%= recipe.name %></a></h1>
+        <h3>Total Time: <%= recipe.total_cook_time %></h3>
+        <h5>Created By:<a href="/users/<%=recipe.user_id%>"><%=recipe.user.username%></a></h5>
+    <%end%>
 
 
 

@@ -4,33 +4,33 @@ Need to verify user should see this recipe. recipe is public, or user belongs to
 <!Doctype html>
 <html>
     <body>
-    <% if @recipe.pub == true || @recipe.user.family.users.include?(current_user) || @recipe.user == current_user%>
-        <h1><%= @recipe.name %></h1>
-        <p>Uploaded By:<a href='/users/<%=@recipe.user.id%>%'><%=@recipe.user.username%></a></p>
-        <br>
-        <h3>Time: <%=@recipe.total_cook_time%></h3><br>
-        <h3>Ingredients:</h3>
-        <ol>
-            <% @recipe.ingredients_to_array.each do |ingredient| %>
-            <li><%= ingredient %></li>
+        <% if @recipe.pub == true || @recipe.user.family.users.include?(current_user) || @recipe.user == current_user%>
+            <h1><%= @recipe.name %></h1>
+            <p>Uploaded By:<a href='/users/<%=@recipe.user.id%>'><%=@recipe.user.username%></a></p>
+            <br>
+            <h3>Time: <%=@recipe.total_cook_time%></h3><br>
+            <h3>Ingredients:</h3>
+            <ol>
+                <% @recipe.ingredients_to_array.each do |ingredient| %>
+                <li><%= ingredient %></li>
+                <%end%>
+            </ol>
+            <br>
+            <br>
+            <h3>Instructions:</h3>
+            <ol>
+                <% @recipe.instructions_to_array.each do |step| %>
+                <li><%=step%></li>
+                <%end%>
+            </ol>
+            <% if @recipe.user == current_user%>
+                <form method='get' action='/recipes/<%=@recipe.id%>/edit'>
+                    <input type="submit" value = "Edit">
+                    </form>
+                    <form method='POST' action="/recipes/<%=@recipe.id%>">
+                    <input type="submit" name="_method" value="delete">
+                </form>
             <%end%>
-        </ol>
-        <br>
-        <br>
-        <h3>Instructions:</h3>
-        <ol>
-            <% @recipe.instructions_to_array.each do |step| %>
-            <li><%=step%></li>
-            <%end%>
-        </ol>
-        <% if @recipe.user == current_user%>
-        <form method='get' action='/recipes/<%=@recipe.id%>/edit'>
-        <input type="submit" value = "Edit">
-        </form>
-        <form method='POST' action="/recipes/<%=@recipe.id%>">
-        <input type="submit" name="_method" value="delete">
-        </form>
         <%end%>
-    <%end%>
     </body>
 </html>

@@ -1,12 +1,12 @@
 <form method="POST" action="/recipes/<%=@recipe.id%>">
-<input id="hidden" type="hidden" name="_method" value="PATCH">
-<p>Recipe Name:<input type="text" name="name" value ="<%=@recipe.name%>"></p>
-<p>Please seperate ingredients with commas for best results.</p>
-<p>Ingredients:<input type="text" name="ingredients" value ="<%=@recipe.name%>">
-<p>Please seperate steps with a semicolon (;) for best results.</p>
-<p>Directions:<input type="textarea" name="instructions" value ='<%=@recipe.instructions%>'' rows="10" cols="50"> #! this isnt rendering correctly.</p>
-<p>Prep Time:<input type="text" name="prep_hours" value="<%=@recipe.prep_hours%>">hour(s), <input type="text" name="prep_minutes" value="<%=@recipe.prep_minutes%>">minutes.</p>
-<p>Cook Time:<input type="text" name="cook_hours" value="<%=@recipe.cook_hours%>">hour(s), <input type="text" name="cook_minutes" value="<%=@recipe.cook_minutes%>">minutes.</p>
-<p>Public -<input type="radio" name="pub" value=true> Secret -<input type="radio" name="pub" value=false></p>
-<input type="submit" name="submit">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+    <p>Recipe Name:<input type="text" name="name" value ="<%=@recipe.name%>"></p>
+    <p>Please seperate ingredients with commas for best results.</p>
+    <p>Ingredients:<input type="text" name="ingredients" value ="<%=@recipe.name%>">
+    <p>Please seperate steps with a semicolon (;) for best results.</p>
+    <p>Directions:<input type="textarea" name="instructions" value ='<%=@recipe.instructions%>'' rows="10" cols="50"> #! this isnt rendering correctly.</p>
+    <p>Prep Time:<input type="text" name="prep_hours" value="<%=@recipe.prep_hours%>">hour(s), <input type="text" name="prep_minutes" value="<%=@recipe.prep_minutes%>">minutes.</p>
+    <p>Cook Time:<input type="text" name="cook_hours" value="<%=@recipe.cook_hours%>">hour(s), <input type="text" name="cook_minutes" value="<%=@recipe.cook_minutes%>">minutes.</p>
+    <p>Public -<input type="radio" name="pub" value=true> Secret -<input type="radio" name="pub" value=false></p>
+    <input type="submit" name="submit">
 </form>
