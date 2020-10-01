@@ -13,7 +13,8 @@ class SessionController < ApplicationController
            # binding.pry
             redirect "/"
         else
-            redirect "/login"
+            @errors = "invalid username or password"
+            erb :"/User/login"
         end
     end
 

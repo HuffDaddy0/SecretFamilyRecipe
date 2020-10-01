@@ -11,8 +11,7 @@ class UserController < ApplicationController
     end
 
     post "/users/new" do
-        #!Done
-        if User.find_by(username: params[:username]) == nil 
+        #!Done 
             @user = User.new(username: params[:username], password: params[:password])
             family = Family.find_by(name: params[:family][:name])
             if @user.save
@@ -24,11 +23,9 @@ class UserController < ApplicationController
                 end
                 redirect to "/users/#{@user.id}"
             else
-                redirect "/users/new"
+                @errors = "Invalid Sign-up Information. Please try again."
+                erb :"/User/signup"
             end 
-        else
-            redirect "/users/new"
-        end
     end
 
     get "/users/:id/fridge" do

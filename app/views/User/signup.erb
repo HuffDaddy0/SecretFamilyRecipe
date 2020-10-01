@@ -1,6 +1,10 @@
 
 
 <H1>Welcome! Please sign up to begin sharing your family recipes!</H1>
+<% if @errors%>
+    <%= @errors %>
+
+<%end%>
 <form method="POST" action="/users/new">
     <p>Username:<input type="text" name="username"></p>
     <p>Password:<input type="text" name="password"></p>
