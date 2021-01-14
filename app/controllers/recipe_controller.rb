@@ -84,5 +84,9 @@ class RecipeController < ApplicationController
         def find_last_5_family
             users_family.recipes.where(pub: false).last(5)
         end
+
+        def sorted_public
+            @recipe = Recipe.where(pub: true).all.sort_by {|recipe| recipe.name.downcase}
+        end
     end
 end

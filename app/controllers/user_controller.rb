@@ -6,12 +6,10 @@ class UserController < ApplicationController
     end
 
     get "/users/new" do
-        #! Done
         erb :'User/signup'
     end
 
     post "/users/new" do
-        #!Done 
             @user = User.new(username: params[:username], password: params[:password])
             family = Family.find_by(name: params[:family][:name])
             if @user.save
@@ -30,20 +28,16 @@ class UserController < ApplicationController
 
     get "/users/:id/fridge" do
         @user = User.find(params[:id])
-            #!Done
         erb :'/User/fridge'
     end
     
     get "/users/:id" do
-       # binding.pry
         @user = User.find_by(id: params[:id])
-            #! Done
         erb :'/User/profile'
     end
 
     get "/users/:id/edit" do
         @user = User.find(params[:id])
-        #! Done
 
     erb :'User/edit'
 end
@@ -54,7 +48,6 @@ end
            @user.update(display_name: params[:display_name])
            @user.save 
            redirect "/users/#{@user.id}"
-           #!Done
         else
         
             redirect "/users/#{current_user.id}"

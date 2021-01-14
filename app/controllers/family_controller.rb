@@ -9,7 +9,6 @@ class FamilyController < ApplicationController
     end
 
     get "/families/new" do
-        #! Done
         erb :'/Family/new'
     end
 
@@ -23,7 +22,7 @@ class FamilyController < ApplicationController
 
     post "/families/join" do
         family = Family.find_by(name: params[:name])
-        binding.pry
+        #binding.pry
         if family && family.authenticate(params[:password])
             current_user.family = family
             current_user.save

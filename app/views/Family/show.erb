@@ -1,12 +1,14 @@
 <h1>The <%=@family.name%> Cookbook!</h1>
 <p>Family Admin:<a href="/users/<%= @family.admin_user_id %>"><%=User.find(@family.admin_user_id).username%></a></p>
-<%if @family.admin_user_id == current_user.id%>
-        <form method='get' action='/families/<%=@family.id%>/edit'>      
-        <input type="submit" value = "Edit Family">
-        </form>
-        <form method='post' action='/families/<%=@family.id%>'>
-        <input type="submit" name="_method" value = "delete">
-        </form>
+<% if @family.admin_user_id%>
+    <%if @family.admin_user_id == current_user.id%>
+            <form method='get' action='/families/<%=@family.id%>/edit'>      
+            <input type="submit" value = "Edit Family">
+            </form>
+            <form method='post' action='/families/<%=@family.id%>'>
+            <input type="submit" name="_method" value = "delete">
+            </form>
+    <%end%>
 <%end%>
 <h2>Family Recipes: <%=@family.recipes.length%></h2><br>
 <br>
